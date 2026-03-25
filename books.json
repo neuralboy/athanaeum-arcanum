@@ -1,0 +1,89 @@
+[
+  {
+    "id": "882",
+    "title": "The Emerald Tablet",
+    "author": "Hermes Trismegistus",
+    "category": "Hidden Truths",
+    "date": "Dated: 1422",
+    "description": "The first ink was drawn from the depths of the obsidian springs, marking the birth of a collection that would outlast empires and stars alike...",
+    "longDescription": "This manuscript, recovered from the brine-chilled depths of the Vesperal Library, contains the only known maps of the stars as they appeared before the Great Shifting. Elara's prose is as dense as the dark matter she describes, weaving together mathematical certainties with theological warnings that still resonate in the modern silence.",
+    "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800"
+    ],
+    "status": "Restricted",
+    "accessibility": "Level III Clearance Required"
+  },
+  {
+    "id": "883",
+    "title": "De Revolutionibus Orbium Coelestium",
+    "author": "Nicolaus Copernicus",
+    "category": "Science",
+    "date": "Circa. 1543",
+    "description": "A revolutionary astronomical work that placed the Sun at the center of the universe.",
+    "imageUrl": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800",
+    "status": "Available"
+  },
+  {
+    "id": "884",
+    "title": "Chronicon Pontificum et Imperatorum",
+    "author": "Martin of Opava",
+    "category": "History",
+    "date": "13th Century",
+    "description": "A comprehensive chronicle of popes and emperors, serving as a vital historical record.",
+    "imageUrl": "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800",
+    "status": "In Repair"
+  },
+  {
+    "id": "885",
+    "title": "The Lesser Key of Solomon",
+    "author": "Anonymous (Solomonic Tradition)",
+    "category": "Hidden Truths",
+    "date": "17th Century",
+    "description": "An anonymous grimoire on demonology, compiled from earlier materials.",
+    "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800",
+    "status": "Restricted"
+  },
+  {
+    "id": "886",
+    "title": "Philosophiæ Naturalis Principia Mathematica",
+    "author": "Isaac Newton",
+    "category": "Science",
+    "date": "1687",
+    "description": "The foundation of classical mechanics and the law of universal gravitation.",
+    "imageUrl": "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800",
+    "status": "Available"
+  },
+  {
+    "id": "887",
+    "title": "The Histories of Herodotus",
+    "author": "Herodotus",
+    "category": "History",
+    "date": "440 BC",
+    "description": "The founding work of history in Western literature, investigating the origins of the Greco-Persian Wars.",
+    "imageUrl": "https://images.unsplash.com/photo-1513001900722-370f803f498d?auto=format&fit=crop&q=80&w=800",
+    "status": "Available"
+  },
+  {
+    "id": "888",
+    "title": "The Voynich Manuscript",
+    "author": "Unknown Author",
+    "category": "Hidden Truths",
+    "date": "15th Century",
+    "description": "An illustrated codex hand-written in an unknown writing system.",
+    "imageUrl": "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&q=80&w=800",
+    "status": "In Repair"
+  },
+  {
+    "id": "889",
+    "title": "Ars Combinatoria",
+    "author": "Gottfried Wilhelm Leibniz",
+    "category": "Esoterica",
+    "date": "1666",
+    "description": "An early work on computing and the alphabet of human thought.",
+    "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800",
+    "status": "Available"
+  }
+]

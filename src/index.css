@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Noto Serif", serif;
+  --font-body: "Newsreader", serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-surface-container: #201F1F;
+  --color-surface-container-low: #1C1B1B;
+  --color-surface-container-high: #2A2A2A;
+  --color-surface-container-highest: #353534;
+  --color-surface-container-lowest: #0E0E0E;
+  
+  --color-primary: #E9C176;
+  --color-primary-container: #C5A059;
+  --color-on-primary: #412D00;
+  
+  --color-on-surface: #E5E2E1;
+  --color-on-surface-variant: #D1C5B4;
+  --color-outline: #9A8F80;
+  --color-outline-variant: #4E4639;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply backdrop-blur-xl bg-background/80;
+  }
+  
+  .book-shadow {
+    box-shadow: 25px 25px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
