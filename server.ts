@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 import { GoogleGenAI } from "@google/genai";
+import { getSupabaseClient } from "./lib/supabase";
 
 dotenv.config();
 
@@ -141,6 +142,74 @@ async function startServer() {
     }
   });
 
+  // Notes API Routes (Supabase)
+  app.get("/api/notes", async (req, res) => {
+    try {
+      const supabase = getSupabaseClient();
+      const { data, error } = await supabase.from("notes").select("*").order("created_at", { ascending: false });
+
+      if (error) throw error;
+      res.json(data || []);
+    } catch (error: any) {
+      console.error("Notes fetch error:", error);
+      res.status(500).json({ error: error.message || "Failed to fetch notes" });
+    }
+  });
+
+  app.post("/api/notes", authenticateAdmin, async (req, res) => {
+    try {
+      const { title, content } = req.body;
+      if (!title || !content) {
+        return res.status(400).json({ error: "Title and content are required" });
+      }
+
+      const supabase = getSupabaseClient();
+      const { data, error } = await supabase
+        .from("notes")
+        .insert([{ title, content }])
+        .select()
+        .single();
+
+      if (error) throw error;
+      res.json(data);
+    } catch (error: any) {
+      console.error("Notes create error:", error);
+      res.status(500).json({ error: error.message || "Failed to create note" });
+    }
+  });
+
+  app.put("/api/notes/:id", authenticateAdmin, async (req, res) => {
+    try {
+      const { title, content } = req.body;
+      const supabase = getSupabaseClient();
+      const { data, error } = await supabase
+        .from("notes")
+        .update({ title, content })
+        .eq("id", req.params.id)
+        .select()
+        .single();
+
+      if (error) throw error;
+      res.json(data);
+    } catch (error: any) {
+      console.error("Notes update error:", error);
+      res.status(500).json({ error: error.message || "Failed to update note" });
+    }
+  });
+
+  app.delete("/api/notes/:id", authenticateAdmin, async (req, res) => {
+    try {
+      const supabase = getSupabaseClient();
+      const { error } = await supabase.from("notes").delete().eq("id", req.params.id);
+
+      if (error) throw error;
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error("Notes delete error:", error);
+      res.status(500).json({ error: error.message || "Failed to delete note" });
+    }
+  });
+
   // AI Chat Endpoint (server-side to protect API key)
   app.post("/api/chat", async (req, res) => {
     if (!GEMINI_API_KEY) {
@@ -172,8 +241,9 @@ async function startServer() {
       return res.status(500).json({ error: "AI service not configured" });
     }
 
+    const { currentBook, history } = req.body;
+    
     try {
-      const { currentBook, history } = req.body;
       const allBooks = getBooks();
       const historyBooks = allBooks.filter((b: any) => history.includes(b.id));
       const historyContext = historyBooks.map((b: any) => `${b.title} (${b.category})`).join(", ");
@@ -215,11 +285,11 @@ async function startServer() {
       const result = JSON.parse(response.text || '{"recommendedIds": []}');
       const recommendedIds = result.recommendedIds as string[];
       const recommendedBooks = allBooks.filter((b: any) => recommendedIds.includes(b.id) && b.id !== currentBook.id).slice(0, 3);
-      
+
       res.json(recommendedBooks);
     } catch (error) {
       console.error("Recommendations API error:", error);
-      
+
       // Fallback: prioritize same category and author
       const allBooks = getBooks();
       const sameAuthor = allBooks.filter((b: any) => b.author === currentBook.author && b.id !== currentBook.id);

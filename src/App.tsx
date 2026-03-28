@@ -9,6 +9,8 @@ import Archive from './pages/Archive';
 import BookDetail from './pages/BookDetail';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminNotes from './pages/AdminNotes';
+import Notes from './pages/Notes';
 import NotFound from './pages/NotFound';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -45,8 +47,10 @@ function AppContent() {
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/archive" element={<PageWrapper><Archive /></PageWrapper>} />
             <Route path="/book/:id" element={<PageWrapper><BookDetail /></PageWrapper>} />
+            <Route path="/notes" element={<PageWrapper><Notes /></PageWrapper>} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/notes" element={<AdminNotes />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

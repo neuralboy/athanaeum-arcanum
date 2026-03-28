@@ -8,6 +8,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }: { isSidebarO
 
   const navLinks = [
     { name: 'Archive', path: '/archive' },
+    { name: 'Notes', path: '/notes' },
     { name: 'About', path: '/' },
   ];
 

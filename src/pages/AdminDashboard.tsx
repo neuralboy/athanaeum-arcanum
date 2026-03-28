@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Plus, 
-  Edit2, 
-  Trash2, 
-  LogOut, 
-  Loader2, 
-  Upload, 
-  X, 
-  Check, 
+import {
+  Plus,
+  Edit2,
+  Trash2,
+  LogOut,
+  Loader2,
+  Upload,
+  X,
+  Check,
   AlertCircle,
   BookOpen,
-  Image as ImageIcon
+  Image as ImageIcon,
+  FileText
 } from 'lucide-react';
 import { Book } from '../types';
 
@@ -228,6 +229,13 @@ export default function AdminDashboard() {
             <p className="font-body italic text-on-surface-variant text-sm">Curating the collective knowledge of the Athanaeum.</p>
           </div>
           <div className="flex gap-4">
+            <button
+              onClick={() => navigate('/admin/notes')}
+              className="bg-surface-container-high text-on-surface px-6 py-3 rounded-xl font-label uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-surface-container-highest transition-colors border border-outline-variant/20"
+            >
+              <FileText size={18} />
+              Manage Notes
+            </button>
             <button
               onClick={() => {
                 setEditingBook(null);
